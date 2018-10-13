@@ -4,6 +4,8 @@
 
 <img src="https://github.com/andob/JClusterSpiderifier/raw/master/demo.gif" align="left" height="700" >
 
+[![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-JClusterSpederifier-green.svg?style=flat )]( https://android-arsenal.com/details/1/7219 )
+
 This library provides a lightweight algorithm to expand a map marker cluster into a spiderweb-like structure, so that the user can interact with each individual marker.
 
 ### Import
