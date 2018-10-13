@@ -4,9 +4,9 @@
 
 This library provides a lightweight algorithm to expand a map marker cluster into a spiderweb-like structure, so that the user can interact with each individual marker.
 
-![](https://github.com/andob/JClusterSpiderifier/raw/master/demo.gif)
+![](https://github.com/andob/JClusterSpiderifier/raw/master/demo.gif =100x)
 
-#### Installation
+### Import
 
 Using gradle:
 
@@ -41,25 +41,25 @@ Using maven:
 </dependency>
 ```
 
-#### Setup
+### Setup
 
-##### Android / GoogleMaps
+### Android / GoogleMaps
 
 [Google Maps guide](https://github.com/andob/JClusterSpiderifier/tree/master/sample_android_google_maps)
 
 using [GoogleMaps Android utils / marker clustering module](https://github.com/googlemaps/android-maps-utils)
 
-##### Android / MapBox
+### Android / MapBox
 
 [MapBox guide](https://github.com/andob/JClusterSpiderifier/tree/master/sample_android_mapbox)
 
 using [Mapbox Android Plugin / deprecated marker clustering module](https://github.com/mapbox/mapbox-plugins-android/tree/ce6793ac7cf107b4ce5cd4740f5aef6aaf6b9a0b/plugin-cluster)
 
-##### Other library / platform
+### Other library / platform
 
-Take a look at Android / Google maps or MapBox guide. The library itself focuses only on the algorithm, does not interact with nor include any map library. Thus the setup is a little verbose.. But in this way you have unlimited freedom to customize your code and use the library with any map library (GMaps, MapBox, osmdroid etc) for any platform (Android, JavaFX etc).
+Take a look at Android / Google maps or MapBox guide. The library itself focuses only on the algorithm, does not interact with nor include any map library. Thus the setup is a little verbose.. But in this way you have unlimited freedom to your code, to use any map library (GMaps, MapBox, osmdroid etc) or any platform (Android, JavaFX etc).
 
-#### License
+### License
 
 ```java
 Copyright 2018 Andrei Dobrescu
