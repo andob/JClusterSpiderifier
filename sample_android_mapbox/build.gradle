@@ -3,13 +3,20 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 28
     defaultConfig {
-        minSdkVersion 14
+        minSdkVersion 15
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
     }
 }
 
 dependencies {
     implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.mapbox.mapboxsdk:mapbox-android-sdk:5.5.1'
+    implementation 'com.mapbox.mapboxsdk:mapbox-android-plugin-cluster-utils:0.1.0'
+//    implementation 'com.github.andob:JClusterSpiderifier:1.0.0'
 }

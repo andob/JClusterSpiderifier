@@ -23,6 +23,8 @@
 hs_err_pid*
 
 /.idea
+/.gradle
+/gradle
 /build
 /jclusterspiderifier/build
 /sample_android_google_maps/build
