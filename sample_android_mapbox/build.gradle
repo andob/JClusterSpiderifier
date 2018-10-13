@@ -18,5 +18,5 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.mapbox.mapboxsdk:mapbox-android-sdk:5.5.1'
     implementation 'com.mapbox.mapboxsdk:mapbox-android-plugin-cluster-utils:0.1.0'
-    implementation 'com.github.andob:JClusterSpiderifier:1.0.2'
+//    implementation 'com.github.andob:JClusterSpiderifier:1.0.0'
 }
