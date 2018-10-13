@@ -21,3 +21,13 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+/.idea
+/gradle
+/build
+/jclusterspiderifier/build
+/sample_android_google_maps/build
+/sample_android_mapbox/build
+/sample_android_osmdroid/build
+/sample_javafx_mapjfx/build
+/sample_javafx_gmapsfx/build

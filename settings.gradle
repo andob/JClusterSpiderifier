@@ -1,0 +1,1 @@
+include ':jclusterspiderifier', ':sample_android_google_maps', ':sample_android_mapbox', ':sample_android_osmdroid', ':sample_javafx_mapjfx', ':sample_javafx_gmapsfx'
