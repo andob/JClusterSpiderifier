@@ -4,12 +4,16 @@ import java.util.Collection;
 
 public class ClusterSpiderifier
 {
-    private double INTER_CIRCLES_DISTANCE = 0.0025;
-
     private int layer;
     private int numberOfPinsInLayer;
     private int indexInLayer;
     private double distanceTimesLayer;
+    private double radius = 0.0007;
+
+    public void setRadius(double radius)
+    {
+        this.radius = radius;
+    }
 
     public void spiderify(Collection<? extends ISpiderifiablePin> items)
     {
@@ -42,7 +46,7 @@ public class ClusterSpiderifier
         this.layer=layer;
         this.numberOfPinsInLayer=numberOfPinsInLayer(layer);
         this.indexInLayer=0;
-        this.distanceTimesLayer=layer*INTER_CIRCLES_DISTANCE;
+        this.distanceTimesLayer=layer* radius;
     }
 
     private int numberOfPinsInLayer(int layer)
