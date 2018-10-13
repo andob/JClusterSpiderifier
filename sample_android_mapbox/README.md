@@ -58,14 +58,14 @@ Your model must "remember" its previous location. When spiderifing pins, the lib
 
 ```java
 public abstract class BaseMapActivity<MODEL extends ISpiderifiableClusterItem> extends AppCompatActivity implements
-        ClusterManagerPluginPlugin.OnClusterItemInfoWindowClickListener<MODEL>,
-        ClusterManagerPluginPlugin.OnClusterClickListener<MODEL>,
+        ClusterManagerPlugin.OnClusterItemInfoWindowClickListener<MODEL>,
+        ClusterManagerPlugin.OnClusterClickListener<MODEL>,
         MapboxMap.OnCameraIdleListener,
         MapboxMap.OnInfoWindowClickListener
 {
     public static final int CLUSTER_SPIDERIFY_ZOOM_THRESHOLD = 15;
 
-    protected ClusterManagerPluginPlugin<MODEL> ClusterManagerPlugin;
+    protected ClusterManagerPlugin<MODEL> clusterManagerPlugin;
     protected ClusterSpiderifier clusterSpiderifier;
     protected Map<Marker, MODEL> spiderifiedMarkers;
     protected MapboxMap map;
@@ -86,8 +86,8 @@ public boolean onClusterClick(Cluster<MODEL> cluster)
     {
         Collection<MODEL> items=cluster.getItems();
         for (MODEL item : items)
-            ClusterManagerPlugin.removeItem(item);
-        ClusterManagerPlugin.cluster();
+            clusterManagerPlugin.removeItem(item);
+        clusterManagerPlugin.cluster();
 
         clusterSpiderifier.spiderify(items);
 
@@ -124,8 +124,8 @@ public void onCameraIdle()
             Collection<MODEL> items=spiderifiedMarkers.values();
             clusterSpiderifier.unspiderify(items);
 
-            ClusterManagerPlugin.addItems(items);
-            ClusterManagerPlugin.cluster();
+            clusterManagerPlugin.addItems(items);
+            clusterManagerPlugin.cluster();
 
             spiderifiedMarkers.clear();
         }
@@ -147,7 +147,7 @@ public boolean onInfoWindowClick(@NonNull Marker marker)
     }
     else
     {
-        ClusterManagerPlugin.onInfoWindowClick(marker);
+        clusterManagerPlugin.onInfoWindowClick(marker);
     }
 
     return false;
