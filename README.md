@@ -2,9 +2,9 @@
 
 ### Java cross-platform library-agnostic Map Cluster Spiderifier algorithm
 
-This library provides a lightweight algorithm to expand a map marker cluster into a spiderweb-like structure, so that the user can interact with each individual marker.
+<img src="https://github.com/andob/JClusterSpiderifier/raw/master/demo.gif" align="left" height="700" >
 
-![](https://github.com/andob/JClusterSpiderifier/raw/master/demo.gif =100x)
+This library provides a lightweight algorithm to expand a map marker cluster into a spiderweb-like structure, so that the user can interact with each individual marker.
 
 ### Import
 
