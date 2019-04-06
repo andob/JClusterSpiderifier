@@ -4,9 +4,5 @@ apply plugin: 'maven'
 group='com.github.jitpack'
 version '1.0.0'
 
-dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-}
-
 sourceCompatibility = "1.8"
 targetCompatibility = "1.8"
