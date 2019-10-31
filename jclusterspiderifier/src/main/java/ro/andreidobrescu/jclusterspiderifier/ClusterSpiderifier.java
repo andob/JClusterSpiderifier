@@ -15,21 +15,21 @@ public class ClusterSpiderifier
         this.radius = radius;
     }
 
-    public void spiderify(Collection<? extends ISpiderifiablePin> items)
+    public void spiderify(Collection<? extends ISpiderifiablePin> pins)
     {
-        ISpiderifiablePin firstItem=items.iterator().next();
-        double centerLat=firstItem.spGetLat();
-        double centerLng=firstItem.spGetLng();
+        ISpiderifiablePinProxy firstPin=pins.iterator().next().getSpiderifiablePinProxy();
+        double centerLat=firstPin.getLat();
+        double centerLng=firstPin.getLng();
 
         setLayer(1);
 
-        for (ISpiderifiablePin item : items)
+        for (ISpiderifiablePin pin : pins)
         {
             double rotation=rotationForPinInLayer();
             double lng=distanceTimesLayer*Math.sin(rotation)+centerLng;
             double lat=distanceTimesLayer*Math.cos(rotation)+centerLat;
 
-            item.spUpdateLatLng(lat, lng);
+            pin.getSpiderifiablePinProxy().updateLatLng(lat, lng);
 
             indexInLayer++;
 
@@ -64,8 +64,6 @@ public class ClusterSpiderifier
     public void unspiderify(Collection<? extends ISpiderifiablePin> items)
     {
         for (ISpiderifiablePin item : items)
-        {
-            item.spRevertUpdateLatLng();
-        }
+            item.getSpiderifiablePinProxy().revertUpdateLatLng();
     }
 }

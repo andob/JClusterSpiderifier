@@ -10,6 +10,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.maps.android.clustering.Cluster;
+import com.google.maps.android.clustering.ClusterItem;
 import com.google.maps.android.clustering.ClusterManager;
 
 import java.util.Collection;
@@ -18,9 +19,9 @@ import java.util.Map;
 import java.util.Set;
 
 import ro.andreidobrescu.jclusterspiderifier.ClusterSpiderifier;
-import ro.andreidobrescu.jclusterspiderifier.googlemaps.model.ISpiderifiableClusterItem;
+import ro.andreidobrescu.jclusterspiderifier.ISpiderifiablePin;
 
-public abstract class BaseMapActivity<MODEL extends ISpiderifiableClusterItem> extends AppCompatActivity implements
+public abstract class BaseMapActivity<MODEL extends ClusterItem & ISpiderifiablePin> extends AppCompatActivity implements
         ClusterManager.OnClusterItemInfoWindowClickListener<MODEL>,
         ClusterManager.OnClusterClickListener<MODEL>,
         GoogleMap.OnCameraIdleListener,

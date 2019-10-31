@@ -4,15 +4,10 @@ In this sample integration, the user can zoom in the map towards a cluster, and 
 
 ### 1. Setup your model
 
-Your data model must extend both Google Maps clustering plugin's ClusterItem interface and JClusterSpiderifier's ISpiderifiablePin. Create an interface ISpiderifiableClusterItem:
+Your data model must extend both Google Maps clustering plugin's ClusterItem interface and JClusterSpiderifier's ISpiderifiablePin:
+
 ```java
-public interface ISpiderifiableClusterItem extends ClusterItem, ISpiderifiablePin
-{
-}
-```
-And implement it in your model:
-```java
-public class Restaurant implements ISpiderifiableClusterItem
+public class Restaurant implements ClusterItem, ISpiderifiablePin
 {
     private String name;
     private double latitude;
@@ -20,38 +15,45 @@ public class Restaurant implements ISpiderifiableClusterItem
     private double previousLatitude;
     private double previousLongitude;
 
-    //.......................................
-    //ISpiderifiableItem's methods:
-
     @Override
-    public double spGetLat()
+    public ISpiderifiablePinProxy getSpiderifiablePinProxy()
     {
-        return latitude;
-    }
+        return new ISpiderifiablePinProxy()
+        {
+            @Override
+            public double getLat()
+            {
+                return Restaurant.this.getLatitude();
+            }
 
-    @Override
-    public double spGetLng()
-    {
-        return longitude;
-    }
+            @Override
+            public double getLng()
+            {
+                return Restaurant.this.getLongitude();
+            }
 
-    @Override
-    public void spUpdateLatLng(double latitude, double longitude)
-    {
-        this.previousLatitude=this.latitude;
-        this.previousLongitude=this.longitude;
-        this.latitude=latitude;
-        this.longitude=longitude;
-    }
+            @Override
+            public void updateLatLng(double latitude, double longitude)
+            {
+                Restaurant restaurant=Restaurant.this;
+                restaurant.previousLatitude=restaurant.latitude;
+                restaurant.previousLongitude=restaurant.longitude;
+                restaurant.latitude=latitude;
+                restaurant.longitude=longitude;
+            }
 
-    @Override
-    public void spRevertUpdateLatLng()
-    {
-        this.latitude=this.previousLatitude;
-        this.longitude=this.previousLongitude;
+            @Override
+            public void revertUpdateLatLng()
+            {
+                Restaurant restaurant=Restaurant.this;
+                restaurant.latitude=restaurant.previousLatitude;
+                restaurant.longitude=restaurant.previousLongitude;
+            }
+        };
     }
 }
 ```
+
 Your model must "remember" its previous location. When spiderifing pins, the library will set latitude / longitude properties via spUpdateLatLng method. Unspiderifiering (transforming the marker spider web back again into a cluster) uses spRevertUpdateLatLng to set the model's original location.
 
 ### 2. Setup MapActivity

@@ -13,6 +13,7 @@ import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.MapboxMapOptions;
 import com.mapbox.mapboxsdk.maps.SupportMapFragment;
 import com.mapbox.mapboxsdk.plugins.cluster.clustering.Cluster;
+import com.mapbox.mapboxsdk.plugins.cluster.clustering.ClusterItem;
 import com.mapbox.mapboxsdk.plugins.cluster.clustering.ClusterManagerPlugin;
 
 import java.util.Collection;
@@ -21,9 +22,9 @@ import java.util.Map;
 import java.util.Set;
 
 import ro.andreidobrescu.jclusterspiderifier.ClusterSpiderifier;
-import ro.andreidobrescu.jclusterspiderifier.mapbox.model.ISpiderifiableClusterItem;
+import ro.andreidobrescu.jclusterspiderifier.ISpiderifiablePin;
 
-public abstract class BaseMapActivity<MODEL extends ISpiderifiableClusterItem> extends AppCompatActivity implements
+public abstract class BaseMapActivity<MODEL extends ClusterItem & ISpiderifiablePin> extends AppCompatActivity implements
         ClusterManagerPlugin.OnClusterItemInfoWindowClickListener<MODEL>,
         ClusterManagerPlugin.OnClusterClickListener<MODEL>,
         MapboxMap.OnCameraIdleListener,

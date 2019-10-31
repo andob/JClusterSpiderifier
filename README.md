@@ -21,7 +21,7 @@ allprojects {
 ```
 ```
 dependencies {
-    implementation 'com.github.andob:JClusterSpiderifier:1.0.3'
+    implementation 'com.github.andob:JClusterSpiderifier:1.0.4'
 }
 ```
 
@@ -64,7 +64,7 @@ Take a look at Android / Google maps or MapBox guide. The library itself focuses
 ### License
 
 ```java
-Copyright 2018 Andrei Dobrescu
+Copyright 2018 - 2019 Andrei Dobrescu
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

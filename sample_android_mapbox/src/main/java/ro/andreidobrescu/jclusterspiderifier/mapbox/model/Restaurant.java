@@ -1,8 +1,12 @@
 package ro.andreidobrescu.jclusterspiderifier.mapbox.model;
 
 import com.mapbox.mapboxsdk.geometry.LatLng;
+import com.mapbox.mapboxsdk.plugins.cluster.clustering.ClusterItem;
 
-public class Restaurant implements ISpiderifiableClusterItem
+import ro.andreidobrescu.jclusterspiderifier.ISpiderifiablePin;
+import ro.andreidobrescu.jclusterspiderifier.ISpiderifiablePinProxy;
+
+public class Restaurant implements ClusterItem, ISpiderifiablePin
 {
     private String name;
     private double latitude;
@@ -86,30 +90,39 @@ public class Restaurant implements ISpiderifiableClusterItem
     }
 
     @Override
-    public double spGetLat()
+    public ISpiderifiablePinProxy getSpiderifiablePinProxy()
     {
-        return latitude;
-    }
+        return new ISpiderifiablePinProxy()
+        {
+            @Override
+            public double getLat()
+            {
+                return Restaurant.this.getLatitude();
+            }
 
-    @Override
-    public double spGetLng()
-    {
-        return longitude;
-    }
+            @Override
+            public double getLng()
+            {
+                return Restaurant.this.getLongitude();
+            }
 
-    @Override
-    public void spUpdateLatLng(double latitude, double longitude)
-    {
-        this.previousLatitude=this.latitude;
-        this.previousLongitude=this.longitude;
-        this.latitude=latitude;
-        this.longitude=longitude;
-    }
+            @Override
+            public void updateLatLng(double latitude, double longitude)
+            {
+                Restaurant restaurant=Restaurant.this;
+                restaurant.previousLatitude=restaurant.latitude;
+                restaurant.previousLongitude=restaurant.longitude;
+                restaurant.latitude=latitude;
+                restaurant.longitude=longitude;
+            }
 
-    @Override
-    public void spRevertUpdateLatLng()
-    {
-        this.latitude=this.previousLatitude;
-        this.longitude=this.previousLongitude;
+            @Override
+            public void revertUpdateLatLng()
+            {
+                Restaurant restaurant=Restaurant.this;
+                restaurant.latitude=restaurant.previousLatitude;
+                restaurant.longitude=restaurant.previousLongitude;
+            }
+        };
     }
 }
