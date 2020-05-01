@@ -1,11 +1,11 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
     }
@@ -16,9 +16,8 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.0.0-beta01'
+    implementation 'androidx.appcompat:appcompat:1.2.0-beta01'
     implementation 'com.google.maps.android:android-maps-utils:0.5'
-    implementation 'com.google.android.gms:play-services-maps:16.1.0'
-//    implementation 'com.github.andob:JClusterSpiderifier:1.0.2'
-    implementation project(":jclusterspiderifier")
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'ro.andob.mapcluster:spiderifier:1.0.5'
 }
