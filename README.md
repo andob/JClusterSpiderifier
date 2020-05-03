@@ -15,13 +15,13 @@ Using gradle:
 ```
 allprojects {
     repositories {
-        maven { url 'https://jitpack.io' }
+        maven { url 'http://maven.andob.info/repository/open_source' }
     }
 }
 ```
 ```
 dependencies {
-    implementation 'com.github.andob:JClusterSpiderifier:1.0.4'
+    implementation 'ro.andob.mapcluster:spiderifier:1.0.5'
 }
 ```
 
@@ -30,16 +30,16 @@ Using maven:
 ```
 <repositories>
     <repository>
-        <id>jitpack.io</id>
-        <url>https://jitpack.io</url>
+        <id>maven.andob.info</id>
+        <url>http://maven.andob.info/repository/open_source</url>
     </repository>
 </repositories>
 ```
 ```
 <dependency>
-    <groupId>com.github.andob</groupId>
-    <artifactId>JClusterSpiderifier</artifactId>
-    <version>1.0.2</version>
+    <groupId>ro.andob.mapcluster</groupId>
+    <artifactId>spiderifier</artifactId>
+    <version>1.0.5</version>
 </dependency>
 ```
 
