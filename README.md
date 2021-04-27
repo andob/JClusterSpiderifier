@@ -15,7 +15,7 @@ Using gradle:
 ```
 allprojects {
     repositories {
-        maven { url 'http://maven.andob.info/repository/open_source' }
+        maven { url 'https://maven.andob.info/repository/open_source' }
     }
 }
 ```
@@ -31,7 +31,7 @@ Using maven:
 <repositories>
     <repository>
         <id>maven.andob.info</id>
-        <url>http://maven.andob.info/repository/open_source</url>
+        <url>https://maven.andob.info/repository/open_source</url>
     </repository>
 </repositories>
 ```
