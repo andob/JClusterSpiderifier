@@ -32,3 +32,4 @@ hs_err_pid*
 /sample_android_osmdroid/build
 /sample_javafx_mapjfx/build
 /sample_javafx_gmapsfx/build
+local.properties
