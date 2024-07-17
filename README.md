@@ -10,12 +10,10 @@ This library provides a lightweight algorithm to expand a map marker cluster int
 
 ### Import
 
-Using gradle:
-
 ```
 allprojects {
     repositories {
-        maven { url 'https://maven.andob.info/repository/open_source' }
+        maven { url 'https://andob.io/repository/open_source' }
     }
 }
 ```
@@ -23,24 +21,6 @@ allprojects {
 dependencies {
     implementation 'ro.andob.mapcluster:spiderifier:1.0.5'
 }
-```
-
-Using maven:
-
-```
-<repositories>
-    <repository>
-        <id>maven.andob.info</id>
-        <url>https://maven.andob.info/repository/open_source</url>
-    </repository>
-</repositories>
-```
-```
-<dependency>
-    <groupId>ro.andob.mapcluster</groupId>
-    <artifactId>spiderifier</artifactId>
-    <version>1.0.5</version>
-</dependency>
 ```
 
 ### Setup
